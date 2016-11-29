@@ -2,18 +2,18 @@
 /*
  * @author onelong
  * @github https://github.com/loveonelong/longreset
+ * @version 0.0.1
  */
 
 /* 防止用户自定义背景颜色对网页的影响 */
 html {
     color: #333;
     background: #fff;
-    
-    /*文字渲染时注重文字的清晰度*/
+
     text-rendering: optimizelegibility;
 }
 
-/* 表单元素并不继承父级 font */
+/* 表单元素并不继承父级 font，需要额外定义 */
 body,
 button,
 input,
@@ -158,12 +158,15 @@ sub {
     bottom: -.25em;
 }
 
+/* 设置a标签无下划线，和一个好看的链接颜色 */
 a,
 a:hover {
     text-decoration: none;
 
     color: #5bc0de;
 }
+
+/* 设置a标签、button标签的指针为手指点击图样 */
 a,
 button {
     cursor: pointer;
