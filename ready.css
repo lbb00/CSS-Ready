@@ -1,7 +1,7 @@
 ﻿/**
  * @author: onelong
- * @version: 0.0.2
- * @github: github.com/loveonelong
+ * @version: 0.0.3
+ * @github: github.com/loveonelong/css-ready
  * @License： MIT
  */
 
@@ -14,6 +14,7 @@ html {
   background: #fff;
   
   /* 当样式表里font-size<12px时，中文版部分浏览器里字体显示仍为12px */
+  /* webkit 27+已经移除，字体最小为9.6px */
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   
@@ -21,29 +22,14 @@ html {
   text-rendering: optimizelegibility;
 }
 
-/* 清除内外边距 */
-body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
-dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
-pre, /* text formatting elements 文本格式元素 */
-fieldset, lengend, button, input, textarea, /* form elements 表单元素 */
-th, td { /* table elements 表格元素 */
+/* 去除内外边距 */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote,
+dl, dt, dd, ul, ol, li,
+pre,
+fieldset, lengend, button, input, textarea,
+th, td {
     margin: 0;
     padding: 0;
-}
-
-/* 重置列表元素 */
-ul, ol { list-style: none; }
-
-/* 链接展示的时候不应该有下划线 */
-a { text-decoration: none; }
-
-/* 链接hover的时候出现下划线 */
-a:hover { text-decoration: underline; }
-
-/* 去掉各Table cell 的边距并让其边重合 */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
 }
 
 /* 去除默认边框 */
@@ -52,6 +38,20 @@ img {
   border: 0;
 }
 
+
+/* 重置列表元素 */
+ul, ol { list-style: none; }
+
+/* 链接展示和hover的时候不应该有下划线 */
+a,a:hover { text-decoration: none; }
+
+/* 去掉各Table cell 的边距并让其边重合 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
 hr {
     margin: 0;
     border: 0;
@@ -59,10 +59,10 @@ hr {
     background: #333;
 }
 
-/* 要注意表单元素并不继承父级 font 的问题 */
+/* 设置默认字体、大小、粗细 */
 body,
 button, input, select, textarea {
-  font: 300 1em/1.8 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans;
+  font: 300 1em/1.0 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans;
 }
 
 /* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */

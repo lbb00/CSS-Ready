@@ -1,21 +1,43 @@
-# LongReset
+# Ready.css
 
-### 简介：
+## 简介：
 
-version：0.0.2
+版本：0.0.3
 
-目前还不是很完整，我自己在用。
+为了前端开发做准备，通过ReadyCSS让各个浏览器表现一致外，包括不同浏览器的字体大小、渲染、边距、边框等问题，还注重了一些中文的排版。
 
-除了让各个浏览器表现一致外(部分代码参考与：Normalize.css)，还注重了一些中文的排版(部分代码参考与：typo.css)。
+部分代码参考与：
+
+- Normalize.css
+- typo.css
 
 所以分为**重置、排版、H5、常用特殊样式**四个方面。
 
-### 起步：
+### 注意！！
+
+目前还处于开发阶段，使用的时候请慎重！！
+
+## 测试平台
+
+- IE 11
+- Edge 38.+
+- Chrome 54
+- Firefox
+- 360安全浏览器
+- 360极速浏览器
+
+
+
+## 开始使用
+
+暂时不提供CDN加速。
 
 ```html
 <!- 在所有样式前引用 ->
 <link rel="stylesheet" type="text/css" href="longreset">
 ```
+
+## 代码哲学
 
 ### RESET:
 
@@ -39,10 +61,10 @@ html {
 }
 ```
 
-**内外边距**
+**去除浏览器默认的内外边距**
 
 ```css
-/* 清除内外边距 */
+/* 清除浏览器默认的内外边距 */
 body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
 dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
 pre, /* text formatting elements 文本格式元素 */
@@ -53,21 +75,28 @@ th, td { /* table elements 表格元素 */
 }
 ```
 
+**去除浏览器默认的边框**
+
+```css
+/* 去除默认边框 */
+fieldset,
+img {
+  border: 0;
+}
+```
+
 **重置列表元素**
 
 ```css
-/* 重置列表元素 */
+/* 去除ul、ol默认的list-style样式 */
 ul, ol { list-style: none; }
 ```
 
 **重置链接文本格式**
 
 ```css
-/* 链接展示的时候不应该有下划线 */
-a { text-decoration: none; }
-
-/* 链接hover的时候出现下划线 */
-a:hover { text-decoration: underline; }
+/* 链接展示和hover的时候不应该有下划线 */
+a,a:hover { text-decoration: none; }
 ```
 
 **表格**
@@ -77,16 +106,6 @@ a:hover { text-decoration: underline; }
 table {
   border-collapse: collapse;
   border-spacing: 0;
-}
-```
-
-**去除默认边框**
-
-```css
-/* 去除默认边框 */
-fieldset,
-img {
-  border: 0;
 }
 ```
 
@@ -108,9 +127,13 @@ hr {
 
 ```css
 /* 要注意表单元素并不继承父级 font 的问题 */
+/* 字体粗细300更加好看 */
+/* 默认字体大小设置为1em便于适应不同的浏览器 */
+/* 让所有的字体的行高为自己本身的大小，否则chrome浏览器渲染字体后所占高度会大于设定字体的大小 */
+/* 这份字体表参考于typo.css 如果不喜欢可以替换成你喜欢的样式 */
 body,
 button, input, select, textarea {
-  font: 300 1em/1.8 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans;
+  font: 300 1em/1.0 PingFang SC, Lantinghei SC, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans;
 }
 ```
 
